@@ -6,8 +6,7 @@ function Login(props){
         onSubmit,
         onInputChange,
         disabled,
-
-    }
+    } = props
     return(
         <div>
             <form onSubmit={onSubmit}>
