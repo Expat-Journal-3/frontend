@@ -15,9 +15,12 @@ const initialState = {
       case 'FETCH_THIS_SUCCESS':
         return {
           ...state,
+          
           isFetching: false,
+          photo: action.name,
           PhotoGridPosts: action.payload,
           error: ''
+        
         };
       case 'FETCH_THIS_FAILURE':
         return {

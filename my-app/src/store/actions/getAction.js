@@ -9,19 +9,19 @@ export const fetchPosts = () => {
     dispatch({ type: 'FETCH_THIS_START' });
     axios
       .get('https://bwexpat-journal.herokuapp.com/api/posts')
-      .then(res=>{
-        
+      .then(res => {
+        dispatch({ type: 'FETCH_This_SUCCESS', payload: res.data, name: res.data.photo });
       })
-      .catch(err=>{
+      .catch(err => {
         console.log(err)
         debugger
-      
-        
         dispatch({
           type: 'FETCH_THIS_FAILURE',
           payload: `Error ${err.response.status}: ${err.response.data}`
         });
-      });
+      })
+
+
   };
 };
 
