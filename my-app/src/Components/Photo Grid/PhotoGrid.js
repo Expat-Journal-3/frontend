@@ -1,23 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PostPhoto from './PostPhoto';
-import logo from '../../Assets/example.jpg'
-
+import axios from 'axios';
 function PhotoGrid(){
-    const exampleData = [
-        {
-        id: 0,
-        image: logo,
-        title: 'example'
-        },
-        {
-        id: 1,
-        image: logo,
-        title: 'exampleTwo'
-        },
-    ]
-    return (
+    const [photo, setPhoto]=useState([])
+    useEffect(()=>{
+        axios.get('https://bwexpat-journal.herokuapp.com/api/posts')
+        .then(res=>{
+          setPhoto([...photo, res.data])
+        })
+        .catch(err=>{
+          console.log(err)
+          debugger
+        })
+    },[])
+     
+     return (
         <div className='PhotoGrid'>
-            {exampleData.map((data)=>{
+            {photo.map((data)=>{
              return <PostPhoto details = {data}/>
             })}
         </div>
