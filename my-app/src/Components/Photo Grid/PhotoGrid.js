@@ -10,7 +10,6 @@ function PhotoGrid(){
         })
         .catch(err=>{
           console.log(err)
-          debugger
         })
     },[])
      
