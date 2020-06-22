@@ -7,7 +7,9 @@ function Nav(){
             <ul>
                 <li className='home'>Home</li>
                 <li className='profile'>Profile</li>
+                <li className='logout'>New Post</li>
                 <li className='logout'>Logout</li>
+
             </ul>
         </div>
     )
