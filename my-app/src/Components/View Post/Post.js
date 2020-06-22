@@ -1,6 +1,6 @@
 import React from 'react';
 import PhotoDetailsSection from './PhotoDetailsSection';
-import PostPhoto from '../PhotoGrid/PostPhoto'
+import PostPhoto from '../Photo Grid/PostPhoto'
 import logo from '../../Assets/example.jpg'
 
 function Post(){
