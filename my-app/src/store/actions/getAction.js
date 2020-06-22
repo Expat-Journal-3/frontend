@@ -1,10 +1,10 @@
 import axios from 'axios';
-// thunks
+
 
 export const FETCH_QUOTE_FAILURE = 'FETCH_QUOTE_FAILURE';
 
 
-export const fetchPost = () => {
+export const fetchPosts = () => {
   return dispatch => {
     dispatch({ type: 'FETCH_THIS_START' });
     axios
