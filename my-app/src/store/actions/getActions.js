@@ -8,7 +8,7 @@ export const fetchPost = () => {
   return dispatch => {
     dispatch({ type: 'FETCH_THIS_START' });
     axios
-      .get('http://localhost:')
+      .get('https://bwexpat-journal.herokuapp.com/api/posts ')
       .then(res => {
         
         console.log(res.data)

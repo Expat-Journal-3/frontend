@@ -1,10 +1,10 @@
 const initialState = {
-    smurfList: [],
+    PhotoGridPosts: [],
     isFetching: false,
     error: ''
   };
   
-  export const smurfReducer = (state = initialState, action) => {
+  export const getReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'FETCH_THIS_START':
         return {
@@ -16,7 +16,7 @@ const initialState = {
         return {
           ...state,
           isFetching: false,
-          smurfList: action.payload,
+          PhotoGridPosts: action.payload,
           error: ''
         };
       case 'FETCH_THIS_FAILURE':
