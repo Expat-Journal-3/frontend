@@ -1,43 +1,26 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import PostPhoto from './PostPhoto';
 import logo from '../../Assets/example.jpg'
-import { fetchPosts } from '../../store/actions/getAction.js';
 
-const PhotoGrid = props => {
-
-    useEffect(() => {
-
-        props.fetchPosts();
-    }, []);
+function PhotoGrid(){
     const exampleData = [
         {
-            id: 0,
-            image: logo,
-            title: 'example'
+        id: 0,
+        image: logo,
+        title: 'example'
         },
         {
-            id: 1,
-            image: logo,
-            title: 'exampleTwo'
+        id: 1,
+        image: logo,
+        title: 'exampleTwo'
         },
     ]
     return (
         <div className='PhotoGrid'>
-            {props.PhotoGird.map((data) => {
-                return <PostPhoto details={data} />
+            {exampleData.map((data)=>{
+             return <PostPhoto details = {data}/>
             })}
         </div>
     )
 }
-const mapStateToProps = state => {
-    console.log(state);
-    return {
-      PhotoGrid: state.PhotoGrid
-    };
-  };
-  
-  export default connect(
-    mapStateToProps,
-    { fetchPosts }
-  )(PhotoGrid);
+export default PhotoGrid;
