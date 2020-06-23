@@ -5,9 +5,9 @@ import Movie from "./Movie";
 
 const initialItem = {
   title: "",
-  director: "",
-  metascore: 0,
-  stars: [],
+  description: "",
+  photo: '',
+  
   
 };
 
@@ -68,30 +68,23 @@ const UpdateForm = props => {
 
         <input
           type="text"
-          name="director"
+          name="description"
           onChange={changeHandler}
-          placeholder="Director"
+          placeholder="description"
           value={item.director}
         />
         <div className="baseline" />
 
         <input
-          type="number"
-          name="metascore"
+          type="text"
+          name="photo"
           onChange={changeHandler}
-          placeholder="Metascore"
+          placeholder="Photo URL"
           value={item.imageUrl}
         />
         <div className="baseline" />
 
-        <input
-          type="array"
-          name="stars"
-          onChange={changeHandler}
-          placeholder="Stars"
-          value={item.stars}
-        />
-        <div className="baseline" />
+        
 
        
 
