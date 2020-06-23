@@ -18,7 +18,7 @@ const UpdateForm = props => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/movies/${id}`)
+      .get(`https://bwexpat-journal.herokuapp.com/api/posts/${id}`)
       .then(res => {
         // res.data
         setItem(res.data);
@@ -43,7 +43,7 @@ const UpdateForm = props => {
     e.preventDefault();
     // make a PUT request to edit the item
     axios
-      .put(`http://localhost:5000/api/movies/${id}`, item)
+      .put(`https://bwexpat-journal.herokuapp.com/api/posts/${id}`, item)
       .then(res => {
         // res.data
         props.setItems(res.data);
