@@ -1,5 +1,5 @@
 const initialState = {
-    PhotoGridPosts: [],
+    photos: [],
     isFetching: false,
     error: ''
   };
