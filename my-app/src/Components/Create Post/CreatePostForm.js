@@ -10,6 +10,7 @@ function CreatePostForm(props){
     return(
         <div>
             <form onSubmit={onSubmit}>
+                <h2>New Post</h2>
                 <div className='newPostPhoto'>
                     <label>Add Image
                         <input
@@ -17,6 +18,7 @@ function CreatePostForm(props){
                             onChange={onInputChange}
                             name='image'
                             type='image'
+                            alt={value.alt}
                         />
                     </label>
                 </div>

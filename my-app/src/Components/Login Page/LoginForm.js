@@ -24,6 +24,7 @@ function Login(props){
                 <label>Password
                     <input
                         value={value.password}
+                        onChange={onInputChange}
                         name='password'
                         type='password'
                     />
