@@ -10,7 +10,8 @@ export const fetchPosts = () => {
     axios
       .get('https://bwexpat-journal.herokuapp.com/api/posts')
       .then(res => {
-        dispatch({ type: 'FETCH_This_SUCCESS', payload: res.data, name: res.data.photo });
+        console.log(res.data)
+        dispatch({ type: 'FETCH_THIS_SUCCESS', payload: res.data});
       })
       .catch(err => {
         console.log(err)

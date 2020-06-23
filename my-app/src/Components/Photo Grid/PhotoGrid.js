@@ -5,7 +5,6 @@ import axios from 'axios';
 import { fetchPosts } from '../../store/actions/getAction.js';
 
 const PhotoGrid = props =>{
-    const [photo, setPhoto]=useState([])
     useEffect(()=>{
         props.fetchPosts();
        
@@ -13,7 +12,7 @@ const PhotoGrid = props =>{
      
      return (
         <div className='PhotoGrid'>
-            {photo.map((data)=>{
+            {props.photos.map((data)=>{
              return <PostPhoto details = {data}/>
             })}
         </div>
@@ -22,7 +21,7 @@ const PhotoGrid = props =>{
 const mapStateToProps = state => {
     console.log(state);
     return {
-      smurfList: state.smurfList
+      photos: state.photos
     };
   };
   

@@ -17,8 +17,7 @@ const initialState = {
           ...state,
           
           isFetching: false,
-          photo: action.name,
-          PhotoGridPosts: action.payload,
+          photos: action.payload,
           error: ''
         
         };
@@ -28,14 +27,7 @@ const initialState = {
           isFetching: false,
           error: action.payload
         };
-  
-      case 'FETCH_THIS_FAILURE':
-        return {
-          ...state,
-          isFetching: false,
-          error: action.payload
-        };
-  
+
   
       default:
         return state;
