@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import Movie from "./Movie";
+
 
 const initialItem = {
   title: "",
@@ -12,7 +12,7 @@ const initialItem = {
 };
 
 const UpdateForm = props => {
-  const { push } = useHistory();
+  //const { push } = useHistory();
   const { id } = useParams();
   const [item, setItem] = useState(initialItem);
 
@@ -48,7 +48,7 @@ const UpdateForm = props => {
         // res.data
         props.setItems(res.data);
         // props.setRefresh(true);
-        push(`/movie-list/${id}`);
+        //push(`/movie-list/${id}`);
       })
       .catch(err => console.log(err));
   };
