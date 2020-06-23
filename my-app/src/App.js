@@ -7,6 +7,9 @@ import Post from './Components/View Post/Post'
 import axios from 'axios'
 import Register from './Components/Login Page/Register';
 import CreatePostForm from './Components/Create Post/CreatePostForm';
+import { Route, Router } from "react-router-dom";
+
+
 
 ///intial states
 const intialValues = {
@@ -86,26 +89,41 @@ function App() {
   return (
     <div className="App">
       <Nav/>
-      <PhotoGrid/>
-      <Post/>
-      <Login
+
+      <Route exact path='/feed'>
+        <PhotoGrid/>
+        </Route>
+        
+      <Route path ='/feed/:id'>
+        <Post/>
+        </Route>
+
+      <Route exact path='/login'>
+        <Login
           value={formValues}
           onInputChange={onInputChange}
           onSubmit={onSubmit}
           disabled={disabled}
       />
-      <Register
+      </Route>
+
+      <Route exact path='/register'>
+        <Register
           value={formValues}
           onInputChange={onInputChange}
           onSubmit={onSubmit}
           disabled={disabled}
-      />
-      <CreatePostForm
-          value={formValues}
-          onInputChange={onInputChange}
-          onSubmit={onSubmit}
-          disabled={disabled}
-      />
+        />
+      </Route>
+
+      <Route exact path='/newPost'>
+        <CreatePostForm
+            value={formValues}
+            onInputChange={onInputChange}
+            onSubmit={onSubmit}
+            disabled={disabled}
+        />
+      </Route>
     </div>
   );
 }
