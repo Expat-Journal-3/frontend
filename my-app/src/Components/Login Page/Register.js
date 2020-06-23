@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Login(props){
+function Register(props){
     const{
         value,
         onInputChange,
@@ -11,10 +11,11 @@ function Login(props){
     return(
         <div>
             <form onSubmit={onSubmit}>
-                <h2>Login</h2>
+                <h2>Register</h2>
+
                 <label>Username
                     <input
-                        value={value.username}
+                        value={value.valuename}
                         onChange={onInputChange}
                         name='username'
                         type='text'
@@ -24,6 +25,7 @@ function Login(props){
                 <label>Password
                     <input
                         value={value.password}
+                        onChange={onInputChange}
                         name='password'
                         type='password'
                     />
@@ -35,4 +37,4 @@ function Login(props){
     )
 }
 
-export default Login;
+export default Register; 
