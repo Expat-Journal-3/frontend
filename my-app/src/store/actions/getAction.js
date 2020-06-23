@@ -1,4 +1,5 @@
-import axios from 'axios';
+
+import { axiosWithAuth } from '../../axiosWithAuth';
 
 
 export const FETCH_QUOTE_FAILURE = 'FETCH_QUOTE_FAILURE';
@@ -7,7 +8,7 @@ export const FETCH_QUOTE_FAILURE = 'FETCH_QUOTE_FAILURE';
 export const fetchPosts = () => {
   return dispatch => {
     dispatch({ type: 'FETCH_THIS_START' });
-    axios
+    axiosWithAuth()
       .get('https://bwexpat-journal.herokuapp.com/api/posts')
       .then(res => {
         console.log(res.data)
@@ -15,7 +16,7 @@ export const fetchPosts = () => {
       })
       .catch(err => {
         console.log(err)
-        debugger
+        //debugger
         dispatch({
           type: 'FETCH_THIS_FAILURE',
           payload: `Error ${err.response.status}: ${err.response.data}`

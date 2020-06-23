@@ -5,7 +5,7 @@ function PostPhoto(props){
 
    return(
        <div className='PostPhoto'>
-           <img src={details.image} alt={details.title}/>
+           <img src={details.photo_url} alt={details.title}/>
        </div>
    )
 }
