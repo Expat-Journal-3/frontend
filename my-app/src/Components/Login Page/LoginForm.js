@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 function Login(props){
     const{
@@ -9,30 +11,31 @@ function Login(props){
     } = props
 
     return(
-        <div>
-            <form onSubmit={onSubmit}>
+        <Form>
+            <FormGroup onSubmit={onSubmit}>
                 <h2>Login</h2>
-                <label>Username
-                    <input
+                <Label>Username
+                    <Input
                         value={value.username}
                         onChange={onInputChange}
                         name='username'
                         type='text'
                     />
-                </label>
+                </Label>
 
-                <label>Password
-                    <input
+                <Label>Password
+                    <Input
                         value={value.password}
                         onChange={onInputChange}
                         name='password'
                         type='password'
                     />
-                </label>
+                </Label>
 
-                <button disabled={disabled}>Login</button>
-            </form>
-        </div>
+                <Link to='/'><Button >Login</Button></Link>
+                <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
+            </FormGroup>
+        </Form>
     )
 }
 

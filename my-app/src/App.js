@@ -7,7 +7,7 @@ import Post from './Components/View Post/Post'
 import axios from 'axios'
 import Register from './Components/Login Page/Register';
 import CreatePostForm from './Components/Create Post/CreatePostForm';
-import { Route, Router } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 
 
@@ -33,8 +33,8 @@ function App() {
   const [disabled, setDisabled] = useState(initialDisabled)       
   
     ///basic form stuff////////////////////
-    const getNewuser = ()=>{
-      axios.get('https://reqres.in/api/users', formValues)
+    const getNewuser = (endpoint)=>{
+      axios.get(`https://bwexpat-journal.herokuapp.com/${endpoint}`, formValues)
       .then(res=>{
         setuser([...user, res.data])
       })
@@ -73,8 +73,11 @@ function App() {
       evt.preventDefault()
   
       const newuser = {
-        name:formValues.username,
-        password:formValues.password,
+        user_id: 0,// integer, references id in users table, grabbed from token
+        photo_url: '' ,// string, optional, place src attribute of img tag
+        title: '', // string, required
+        location: '', // string, optional
+        description:'' // string, required
       }
   
       postNewuser(newuser)
@@ -90,13 +93,13 @@ function App() {
     <div className="App">
       <Nav/>
 
-      <Route exact path='/feed'>
+      <Route exact path='/posts'>
         <PhotoGrid/>
         </Route>
-        
-      <Route path ='/feed/:id'>
+
+      <Route path ='/posts/:id'>
         <Post/>
-        </Route>
+      </Route>
 
       <Route exact path='/login'>
         <Login

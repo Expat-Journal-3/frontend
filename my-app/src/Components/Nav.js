@@ -1,20 +1,20 @@
 import React from 'react';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {Navbar, NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap'
 
-
-function Nav(){
+function Navigation(){
 
     return(
-        <div className='Nav'>
-            <ul>
-                <li className='home'><Link to='/feed'>Home</Link></li>
-                <li className='profile'><Link to=''>Profile</Link></li>
-                <li className='logout'><Link to='/newpost'>New Post</Link></li>
-                <li className='logout'><Link to='/login'>Logout</Link></li>
-
-            </ul>
-        </div>
+        <Navbar className='Nav'>
+            <NavbarBrand>Expat Journal</NavbarBrand>
+            <Nav className='mr-auto'>
+                <NavItem><NavLink tag={Link} to='/posts'>Home</NavLink></NavItem>
+                <NavItem><NavLink tag={Link} to=''>Profile</NavLink></NavItem>
+                <NavItem ><NavLink tag={Link} to='/newpost'>New Post</NavLink></NavItem>
+                <NavItem><NavLink tag={Link} to='/login'>Logout</NavLink></NavItem>
+            </Nav>
+        </Navbar>
     )
 }
 
-export default Nav;
+export default Navigation;
