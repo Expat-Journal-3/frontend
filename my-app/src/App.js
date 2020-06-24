@@ -29,12 +29,12 @@ function App() {
   const [user, setuser] = useState(intialUser)
   const [formValues, setFormValues] = useState(intialValues)
   const [error, setError] = useState(intialErrors)
-  const [disabled, setDisabled] = useState(initialDisabled)
-
-  ///basic form stuff////////////////////
-  const getNewuser = () => {
-    axios.get('https://reqres.in/api/users', formValues)
-      .then(res => {
+  const [disabled, setDisabled] = useState(initialDisabled)       
+  
+    ///basic form stuff////////////////////
+    const getNewuser = (endpoint)=>{
+      axios.get(`https://bwexpat-journal.herokuapp.com/${endpoint}`, formValues)
+      .then(res=>{
         setuser([...user, res.data])
       })
       .catch(err => {
@@ -57,23 +57,29 @@ function App() {
         setFormValues(intialValues)
         console.log('hey')
       })
-  }
-
-  const onInputChange = evt => {
-    const { name, value } = evt.target;
-
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    })
-  }
-
-  const onSubmit = evt => {
-    evt.preventDefault()
-
-    const newuser = {
-      name: formValues.username,
-      password: formValues.password,
+    }
+  
+    const onInputChange = evt =>{
+      const{name, value} = evt.target;
+  
+      setFormValues({
+        ...formValues,
+        [name]: value,
+      })
+    }
+  
+    const onSubmit = evt =>{
+      evt.preventDefault()
+  
+      const newuser = {
+        user_id: 0,// integer, references id in users table, grabbed from token
+        photo_url: '' ,// string, optional, place src attribute of img tag
+        title: '', // string, required
+        location: '', // string, optional
+        description:'' // string, required
+      }
+  
+      postNewuser(newuser)
     }
 
     postNewuser(newuser)
@@ -87,32 +93,44 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
-      <PhotoGrid />
-      <Post />
-      <SampleLogin/>
-      <Login
-        value={formValues}
-        onInputChange={onInputChange}
-        onSubmit={onSubmit}
-        disabled={disabled}
-      />
-      <Register
-        value={formValues}
-        onInputChange={onInputChange}
-        onSubmit={onSubmit}
-        disabled={disabled}
-      />
-      <CreatePostForm
-        value={formValues}
-        onInputChange={onInputChange}
-        onSubmit={onSubmit}
-        disabled={disabled}
-      />
-      
+      <Nav/>
 
+      <Route exact path='/posts'>
+        <PhotoGrid/>
+        </Route>
+
+      <Route path ='/posts/:id'>
+        <Post/>
+      </Route>
+
+      <Route exact path='/login'>
+        <Login
+          value={formValues}
+          onInputChange={onInputChange}
+          onSubmit={onSubmit}
+          disabled={disabled}
+      />
+      </Route>
+
+      <Route exact path='/register'>
+        <Register
+          value={formValues}
+          onInputChange={onInputChange}
+          onSubmit={onSubmit}
+          disabled={disabled}
+        />
+      </Route>
+
+      <Route exact path='/newPost'>
+        <CreatePostForm
+            value={formValues}
+            onInputChange={onInputChange}
+            onSubmit={onSubmit}
+            disabled={disabled}
+        />
+      </Route>
     </div>
   );
-}
+
 
 export default App;
