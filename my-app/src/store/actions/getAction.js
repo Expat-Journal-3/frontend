@@ -9,7 +9,7 @@ export const fetchPosts = () => {
   return dispatch => {
     dispatch({ type: 'FETCH_THIS_START' });
     axiosWithAuth()
-      .get('https://bwexpat-journal.herokuapp.com/api/posts')
+      .get('/api/posts')
       .then(res => {
         console.log(res.data)
         dispatch({ type: 'FETCH_THIS_SUCCESS', payload: res.data});
