@@ -20,7 +20,7 @@ const UpdateForm = props => {
     axios
       .get(`https://bwexpat-journal.herokuapp.com/api/posts/${id}`)
       .then(res => {
-        // res.data
+      
         setItem(res.data);
       })
       .catch(err => console.log(err));
