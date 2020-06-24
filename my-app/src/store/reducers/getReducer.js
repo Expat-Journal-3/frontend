@@ -1,10 +1,10 @@
 const initialState = {
-    smurfList: [],
+    photos: [],
     isFetching: false,
     error: ''
   };
   
-  export const smurfReducer = (state = initialState, action) => {
+  export const getReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'FETCH_THIS_START':
         return {
@@ -15,9 +15,11 @@ const initialState = {
       case 'FETCH_THIS_SUCCESS':
         return {
           ...state,
+          
           isFetching: false,
-          smurfList: action.payload,
+          photos: action.payload,
           error: ''
+        
         };
       case 'FETCH_THIS_FAILURE':
         return {
@@ -25,14 +27,7 @@ const initialState = {
           isFetching: false,
           error: action.payload
         };
-  
-      case 'FETCH_THIS_FAILURE':
-        return {
-          ...state,
-          isFetching: false,
-          error: action.payload
-        };
-  
+
   
       default:
         return state;

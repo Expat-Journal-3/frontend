@@ -1,26 +1,29 @@
-import axios from 'axios';
-// thunks
+
+import { axiosWithAuth } from '../../axiosWithAuth';
+
 
 export const FETCH_QUOTE_FAILURE = 'FETCH_QUOTE_FAILURE';
 
 
-export const fetchPost = () => {
+export const fetchPosts = () => {
   return dispatch => {
     dispatch({ type: 'FETCH_THIS_START' });
-    axios
-      .get('http://localhost:')
+    axiosWithAuth()
+      .get('/api/posts')
       .then(res => {
-        
         console.log(res.data)
-        dispatch({ type: 'FETCH_THIS_SUCCESS', payload: res.data });
+        dispatch({ type: 'FETCH_THIS_SUCCESS', payload: res.data});
       })
       .catch(err => {
-        
+        console.log(err)
+        //debugger
         dispatch({
           type: 'FETCH_THIS_FAILURE',
           payload: `Error ${err.response.status}: ${err.response.data}`
         });
-      });
+      })
+
+
   };
 };
 

@@ -1,24 +1,31 @@
 import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
 import PostPhoto from './PostPhoto';
 import axios from 'axios';
-function PhotoGrid(){
-    const [photo, setPhoto]=useState([])
+import { fetchPosts } from '../../store/actions/getAction.js';
+
+const PhotoGrid = props =>{
     useEffect(()=>{
-        axios.get('https://bwexpat-journal.herokuapp.com/api/posts')
-        .then(res=>{
-          setPhoto([...photo, res.data])
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+        props.fetchPosts();
+       
     },[])
      
      return (
         <div className='PhotoGrid'>
-            {photo.map((data)=>{
+            {props.photos.map((data)=>{
              return <PostPhoto details = {data}/>
             })}
         </div>
     )
 }
-export default PhotoGrid;
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+      photos: state.photos
+    };
+  };
+  
+  export default connect(
+    mapStateToProps,
+    { fetchPosts }
+  )(PhotoGrid);
