@@ -32,7 +32,7 @@ function Login(props){
                     />
                 </Label>
 
-                <Link to='/'><Button >Login</Button></Link>
+                <Link to='/post'><Button disabled={disabled} >Login</Button></Link>
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
         </Form>
