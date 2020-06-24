@@ -2,8 +2,9 @@ import React from 'react';
 import PhotoDetailsSection from './PhotoDetailsSection';
 import PostPhoto from '../Photo Grid/PostPhoto'
 import logo from '../../Assets/example.jpg'
+import { Link } from "react-router-dom";
 
-function Post(){
+function Post(props){
     const exampleData = [
         {
         id: 0,
@@ -23,10 +24,12 @@ function Post(){
         },
     ]
     return (
+        //<Link to={`/post/${details.id}`}>
         <div className='Post'>
             <PhotoDetailsSection details={exampleData[1]}/>
             <PostPhoto details={exampleData[1]}/>
         </div>
+       // </Link>
     )
 }
 

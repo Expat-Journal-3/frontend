@@ -11,4 +11,4 @@ const loginSchema = yup.object().shape({
     .max(255, "No more than 255 characters"),
 })
 
-export default loginSchema
+export default loginSchema;
