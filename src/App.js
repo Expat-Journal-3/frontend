@@ -12,7 +12,7 @@ import Post from './Components/View Post/Post'
 import CreatePostForm from './Components/Create Post/CreatePostForm'
 import Register from './Components/Login Page/Register'
 import SampleLogin from './Components/Login Page/SampleLogin'
-import UpdateForm from './Components/Create Post/UpdateForm'
+//import UpdateForm from './Components/Create Post/UpdateForm'
 //Schemas
 import loginSchema from './Validation/loginSchema'
 
@@ -103,7 +103,7 @@ function App() {
 
   useEffect(() => {
     getNewuser()
-  }, [])
+  }, )
 
   useEffect(() => {
     loginSchema.isValid(formValues).then(valid => {
