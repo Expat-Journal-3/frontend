@@ -8,13 +8,17 @@ import {getReducer} from './store/reducers/getReducer.js';
 
 import App from './App';
 
+import { BrowserRouter as Router } from "react-router-dom";
+
 const store = createStore(getReducer, applyMiddleware(thunk));
 
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   rootElement
 );

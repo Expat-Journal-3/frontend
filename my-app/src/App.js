@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios'
-import {Yup} from 'yup'
+import * as Yup from 'yup'
 
 //imported components
 import Nav from './Components/Nav'
@@ -65,7 +65,7 @@ function App() {
         })
       }
     
-      const onInputChange = evt =>{//this is where yup does it's stuff
+      const onInputChange = evt =>{
         const{name, value} = evt.target;
     
         Yup
@@ -89,19 +89,12 @@ function App() {
         })
       }
     
-      const onSubmit = evt =>{//this is where you call postNewUser
+      const onSubmit = evt =>{
         evt.preventDefault()
     
         const newuser = {
-          name:formValues.name,
-          size:formValues.size,
-          toppings:{
-            Cheese: formValues.Cheese,
-            Pineapple: formValues.Pineapple,
-            Jalapeno: formValues.Jalapeno,
-            Meat: formValues.Meat,
-          },
-          specialInstructions:formValues.specialInstructions,
+          username: formValues.username,
+          password: formValues.password
         }
     
         postNewuser(newuser)
