@@ -1,12 +1,12 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-const loginSchema = Yup.object().shape({
-    username: Yup
+const loginSchema = yup.object().shape({
+    username: yup
         .string()
-        .required("Must include your name.")
+        .required("Must include a usename.")
         .max(255, "No more than 255 characters"),
-    password: Yup
-        .required("Must select a size")
+    password: yup
+        .required("Must include your password")
         .max(255, "No more than 255 characters"),
 })
 
