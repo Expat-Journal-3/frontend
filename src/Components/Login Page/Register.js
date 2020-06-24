@@ -7,7 +7,7 @@ function Register(props){
         value,
         onInputChange,
         onSubmit,
-        disabled,
+        //disabled,
     } = props
 
     return(
