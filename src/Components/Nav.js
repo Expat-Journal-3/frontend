@@ -10,7 +10,7 @@ function Navigation(){
             <Nav className='mr-auto'>
                 <NavItem><NavLink tag={Link} to='/post'>Home</NavLink></NavItem>
                 <NavItem ><NavLink tag={Link} to='/newpost'>New Post</NavLink></NavItem>
-                <NavItem><NavLink tag={Link} to='/login'>Logout</NavLink></NavItem>
+                <NavItem><NavLink tag={Link} to='/login'>Log In</NavLink></NavItem>
             </Nav>
         </Navbar>
     )
