@@ -12,9 +12,12 @@ import Post from './Components/View Post/Post'
 import CreatePostForm from './Components/Create Post/CreatePostForm'
 import Register from './Components/Login Page/Register'
 import SampleLogin from './Components/Login Page/SampleLogin'
-import UpdateForm from './Components/Create Post/UpdateForm'
+
+
 //Schemas
 import loginSchema from './Validation/loginSchema'
+import PrivateRoute from './Components/Routes/PrivateRoute'
+import { axiosWithAuth } from './axiosWithAuth';
 
 ///intial states
 const intialValues = {
@@ -25,6 +28,8 @@ const intialValues = {
 const intialErrors = {
   username: '',
   password: '',
+  
+
 }
 
 const intialUser = []
@@ -39,6 +44,7 @@ function App() {
   const [disabled, setDisabled] = useState(initialDisabled)
 
   ///basic form stuff////////////////////
+
   const getNewuser = () => {
     axios.get('https://reqres.in/api/users', formValues)
       .then(res => {
@@ -49,9 +55,9 @@ function App() {
         debugger
       })
   }
-
   const postNewuser = (newuser) => {
-    axios.post('https://reqres.in/api/users', newuser)
+    axiosWithAuth()
+      .post('api/auth/login', newuser)
       .then(res => {
         setuser([...user, res.data])
         console.log(res.data)
@@ -80,7 +86,7 @@ function App() {
       .catch(err => {
         setError({
           ...error,
-          [name]: err.errors[0]
+          [name]: err.error[0]
         })
       })
 
@@ -100,10 +106,11 @@ function App() {
 
     postNewuser(newuser)
   }
-
   useEffect(() => {
     getNewuser()
   }, [])
+
+ 
 
   useEffect(() => {
     loginSchema.isValid(formValues).then(valid => {
@@ -147,6 +154,9 @@ function App() {
           disabled={disabled}
         />
       </Route>
+      <PrivateRoute exact path='/posts'>
+        <PhotoGrid />
+      </PrivateRoute>
 
       <Route path='/we_are_in/newpost'>
           <CreatePostForm/>
