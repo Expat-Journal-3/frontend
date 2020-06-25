@@ -8,7 +8,8 @@ const PhotoGrid = props =>{
         props.fetchPosts();
        
     },[])
-     
+    console.log(props)
+
      return (
         <div className='PhotoGrid'>
             {props.photos.map((data)=>{
