@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 
 function Post({post}) {
-  const { image,title,description } = post
+  const { photo_url,title,description } = post
 
   return (
       <div className='card'>
             <Card >
-                <CardImg top width="100%" src={image} alt={title}/>
+                <CardImg top width="100%" src={photo_url} alt={title}/>
                 <CardBody>
                     <CardTitle> title: {title}</CardTitle>
                     <CardText> description: {description}</CardText>
@@ -20,4 +20,4 @@ function Post({post}) {
   )
 } 
 
-export default Post
+export default Post;
