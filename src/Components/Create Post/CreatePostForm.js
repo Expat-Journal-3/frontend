@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import loginSchema from '../../Validation/loginSchema';
 import * as Yup from 'yup';
 import {axiosWithAuth} from '../../axiosWithAuth'
+import { useHistory } from "react-router-dom";
 const intialErrors = {
     description: '',
     location: '',
@@ -19,17 +20,18 @@ const intialValues = {
 const initialDisabled = true
 
 function CreatePostForm(props) {
-    const [post, setpost] = useState(intialUser)
+    //const [post, setpost] = useState(intialUser)
     const [value, setValues] = useState(intialValues)
     const [error, setError] = useState(intialErrors)
-    const [disabled, setDisabled] = useState(initialDisabled)
+    const history = useHistory();
+   // const [disabled, setDisabled] = useState(initialDisabled)
 
 
   const postNewPost = (newpost) => {
     axiosWithAuth()
-      .post(`api/posts/user/${props.id}`, newpost)
+      .post(`api/posts/user/${props.user_id}`, newpost)
       .then(res => {
-        setpost([...post, res.data])
+        history.push("/posts");
         console.log(res.data)
       })
       .catch(err => {
@@ -119,8 +121,8 @@ function CreatePostForm(props) {
                         />
                     </label>
                 </div>
-                <button disabled={disabled}>Save</button>
-                <button disabled={disabled}>Cancel</button>
+                <button >Save</button>
+                <button >Cancel</button>
             </form>
         </div>
     )
