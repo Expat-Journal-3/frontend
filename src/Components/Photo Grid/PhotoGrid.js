@@ -7,7 +7,7 @@ const PhotoGrid = props =>{
     useEffect(()=>{
         props.fetchPosts();
        
-    },[s])
+    },[])
     console.log(props)
 
      return (
