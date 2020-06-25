@@ -1,33 +1,23 @@
 import React from 'react';
-import PhotoDetailsSection from './PhotoDetailsSection';
-import PostPhoto from '../Photo Grid/PostPhoto'
-import logo from '../../Assets/example.jpg'
+import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-function Post(){
-    const exampleData = [
-        {
-        id: 0,
-        image: logo,
-        title: 'example',
-        username: 'Ehuntwork',
-        description: 'blahblahba hcowueo owubcoo owuweovbodub wjwdksdbwe !!!!',
-        location: 'Not here, USA',
-        },
-        {
-        id: 1,
-        image: logo,
-        title: 'exampleTwo',
-        username: 'Ehuntwork',
-        description: 'blahblahba hcowueo owubcoo owuweovbodub wjwdksdbwe !!!!',
-        location: 'Not here, USA',
-        },
-    ]
-    return (
-        <div className='Post'>
-            <PhotoDetailsSection details={exampleData[1]}/>
-            <PostPhoto details={exampleData[1]}/>
-        </div>
-    )
-}
+
+
+function Post({post}) {
+  const { photo_url,title,description } = post
+
+  return (
+      <div className='card'>
+            <Card >
+                <CardImg top width="100%" src={photo_url} alt={title}/>
+                <CardBody>
+                    <CardTitle> title: {title}</CardTitle>
+                    <CardText> description: {description}</CardText>
+                </CardBody>
+            </Card>
+    </div>
+  )
+} 
 
 export default Post;

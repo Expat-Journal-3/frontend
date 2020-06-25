@@ -1,18 +1,18 @@
-import React, {useEffect} from 'react';
+import React,{ useEffect} from 'react';
 import { connect } from 'react-redux';
-import PostPhoto from './PostPhoto';
+import Post from '../View Post/Post';
 import { fetchPosts } from '../../store/actions/getAction.js';
 
 const PhotoGrid = props =>{
     useEffect(()=>{
         props.fetchPosts();
        
-    },[props])
+    },[])
      
      return (
         <div className='PhotoGrid'>
             {props.photos.map((data)=>{
-             return <PostPhoto details = {data}/>
+             return <Post details = {data}/>
             })}
         </div>
     )
@@ -20,7 +20,7 @@ const PhotoGrid = props =>{
 const mapStateToProps = state => {
     console.log(state);
     return {
-      photos: state.photos
+      photos: state.getReducer.photos
     };
   };
   

@@ -1,27 +1,34 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Row, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-function Register(props){
+function Login(props){
     const{
         value,
         onInputChange,
         onSubmit,
-        //disabled,
+        disabled,
     } = props
 
     return(
         <Form>
-            <FormGroup onSubmit={onSubmit}>
+            <FormGroup onSubmit={onSubmit} >
+                <Row form>
                 <h2>Register</h2>
-                <Label>Username
-                    <Input
-                        value={value.username}
-                        onChange={onInputChange}
-                        name='username'
-                        type='text'
-                    />
-                </Label>
+                </Row>
+                <Row form>
+                    <Label>Username
+                    
+                        <Input
+                            value={value.username}
+                            onChange={onInputChange}
+                            name='username'
+                            type='text'
+                        />
+
+                    </Label>
+                </Row>
+                <Row form>
 
                 <Label>Password
                     <Input
@@ -30,13 +37,19 @@ function Register(props){
                         name='password'
                         type='password'
                     />
+                    
                 </Label>
+                </Row>
+                <Row form>
+                <Link to='/we_are_in/post'><Button classname='loginButton' disabled={disabled} >Register</Button></Link>
+                </Row>
 
-                <Link to='/'><Button >Register</Button></Link>
-                <FormText color='muted'>Have an account? <Link to='/login'>Login Here!</Link></FormText>
+                <Row form>
+                <FormText color='muted'>Have an account? <Link to='/'>Login Here!</Link></FormText>
+                </Row>
             </FormGroup>
         </Form>
     )
 }
 
-export default Register;
+export default Login;

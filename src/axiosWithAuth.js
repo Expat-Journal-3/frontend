@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-export const axiosWithAuth = () =>{
+export const axiosWithAuth = () => {
     const token = window.localStorage.getItem('token');
 
     return axios.create({
         headers: {
-            authorization:token
+            "Content-Type": "application/json",
+            Authorization: `${token}`,
         },
-        baseURL:'https://bwexpat-journal.herokuapp.com'
+        baseURL: 'https://bwexpat-journal.herokuapp.com'
     });
 }
