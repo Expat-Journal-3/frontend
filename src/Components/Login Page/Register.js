@@ -7,7 +7,7 @@ function Login(props){
         value,
         onInputChange,
         onSubmit,
-        //disabled,
+        disabled,
     } = props
 
     return(

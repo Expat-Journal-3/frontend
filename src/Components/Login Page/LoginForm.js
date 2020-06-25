@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Row } from 'reactstrap';
 import { axiosWithAuth } from "../../axiosWithAuth"
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -44,18 +44,21 @@ function Login(props) {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
             <FormGroup >
-                <h2>Login</h2>
-                <div className="errors">
-                    <p style={{ color: "red", fontWeight: "bold" }}>
-                        {errors.username && errors.username.message}
-                    </p>
-                    
-                    <p style={{ color: "red", fontWeight: "bold" }}>
-                        {errors.password && errors.password.message}
-                    </p>
-                </div>
+                <Row>
+                    <h2>Login</h2>
+                    <div className="errors">
+                        <p style={{ color: "red", fontWeight: "bold" }}>
+                            {errors.username && errors.username.message}
+                        </p>
+                        
+                        <p style={{ color: "red", fontWeight: "bold" }}>
+                            {errors.password && errors.password.message}
+                        </p>
+                    </div>
+                </Row>
+                <Row>
                 <Label>Username
                     <Input
                         ref={register}
@@ -64,7 +67,9 @@ function Login(props) {
                         type='text'
                     />
                 </Label>
+                </Row>
 
+                <Row>
                 <Label>Password
                     <Input
                         ref={register}
@@ -73,11 +78,12 @@ function Login(props) {
                         type='password'
                     />
                 </Label>
+                </Row>
 
                 <Button >Login</Button>
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
-        </form>
+        </Form>
     )
 }
 

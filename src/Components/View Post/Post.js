@@ -31,4 +31,4 @@ function Post({post}) {
   )
 } 
 
-export default PostList
+export default Post
