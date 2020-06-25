@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import {axiosWithAuth} from "../../axiosWithAuth.js"; 
+import { fetchPosts } from '../../store/actions/getAction.js';
 
 
 export default function PhotoDetailsSection(props){
@@ -10,14 +11,11 @@ export default function PhotoDetailsSection(props){
     const { id } = useParams();
     const history = useHistory();
     console.log(post);
+    
   
     useEffect(() => {
-      axiosWithAuth()
-        .get(`api/posts/${id}`)
-        .then((res) => {
-          setPost(res.data);
-        })
-        .catch((err) => console.log(err));
+      props.fetchPosts()
+      
     }, [id]);
   
     const handleSubmit = (e) => {
