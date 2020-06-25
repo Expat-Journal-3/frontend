@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import loginSchema from './Validation/loginSchema';
+import loginSchema from '../../Validation/loginSchema';
 import * as Yup from 'yup';
 import {axiosWithAuth} from '../../axiosWithAuth'
 const intialErrors = {
@@ -18,7 +18,7 @@ const intialValues = {
   const intialUser = []
 const initialDisabled = true
 
-function CreatePostForm() {
+function CreatePostForm(props) {
     const [post, setpost] = useState(intialUser)
     const [value, setValues] = useState(intialValues)
     const [error, setError] = useState(intialErrors)
@@ -27,7 +27,7 @@ function CreatePostForm() {
 
   const postNewPost = (newpost) => {
     axiosWithAuth()
-      .post(`api/posts/user/${id}`, newpost)
+      .post(`api/posts/user/${props.id}`, newpost)
       .then(res => {
         setpost([...post, res.data])
         console.log(res.data)
@@ -72,7 +72,7 @@ function CreatePostForm() {
       const onSubmit = evt => {
         evt.preventDefault()
     
-        const newuser = {
+        const newPost = {
           username: value.username,
           password: value.password
         }
