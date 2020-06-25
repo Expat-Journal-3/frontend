@@ -118,16 +118,31 @@ function App() {
       setDisabled(!valid)
     })
   }, [formValues])
+
   return (
     <div className="App">
-      <Nav />
-    
-      <Route path='/login'>
+      <Route path='/we_are_in'>
+        <Nav />
+      </Route>
+
+      <Route exact path='/we_are_in/post'>
+        <PhotoGrid />
+      </Route>
+
+      <Route path='/we_are_in/post/:id'>
+        <Post />
+      </Route>
+
+      <Route exact path='/'>
         <SampleLogin />
       </Route>
 
-      <Route path='/login'>
-        <Login 
+      <Route exact path='/'>
+        <Login
+          value={formValues}
+          onInputChange={onInputChange}
+          onSubmit={onSubmit}
+          disabled={disabled}
         />
       </Route>
 
@@ -143,16 +158,9 @@ function App() {
         <PhotoGrid />
       </PrivateRoute>
 
-      <PrivateRoute path='/post/:id'>
-        <Post />
-      </PrivateRoute>
-      
-
-      <PrivateRoute path='/newpost'>
-          <CreatePostForm
-            
-          />
-      </PrivateRoute>
+      <Route path='/we_are_in/newpost'>
+          <CreatePostForm/>
+      </Route>
 
     </div>
   )

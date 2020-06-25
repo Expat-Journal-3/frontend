@@ -7,14 +7,14 @@ function Login(props){
         value,
         onInputChange,
         onSubmit,
-        //disabled,
+        disabled,
     } = props
 
     return(
         <Form>
             <FormGroup onSubmit={onSubmit} >
                 <Row form>
-                <h2>Register</h2>
+                <h2>Login</h2>
                 </Row>
                 <Row form>
                     <Label>Username
@@ -41,11 +41,11 @@ function Login(props){
                 </Label>
                 </Row>
                 <Row form>
-                <Link to='/we_are_in/post'><Button classname='loginButton' disabled={disabled} >Register</Button></Link>
+                <Link to='/we_are_in/post'><Button className='loginButton' disabled={disabled} >Login</Button></Link>
                 </Row>
 
                 <Row form>
-                <FormText color='muted'>Have an account? <Link to='/'>Login Here!</Link></FormText>
+                <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
                 </Row>
             </FormGroup>
         </Form>
