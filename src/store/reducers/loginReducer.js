@@ -12,7 +12,7 @@ const initialState = {
   error: "",
 };
 
-export function userReducer(state = initialState, action) {
+export function loginReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_START:
       return {

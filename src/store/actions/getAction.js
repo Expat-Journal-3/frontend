@@ -10,6 +10,8 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
+
+
 export const fetchPosts = () => {
   return dispatch => {
     dispatch({ type: 'FETCH_THIS_START' });
@@ -17,7 +19,7 @@ export const fetchPosts = () => {
       .get('/api/posts')
       .then(res => {
         console.log(res.data)
-        dispatch({ type: 'FETCH_THIS_SUCCESS', payload: res.data});
+        dispatch({ type: 'FETCH_THIS_SUCCESS', payload: res.data });
       })
       .catch(err => {
         console.log(err)

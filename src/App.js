@@ -45,7 +45,16 @@ function App() {
 
   ///basic form stuff////////////////////
 
-
+  const getNewuser = () => {
+    axios.get('https://reqres.in/api/users', formValues)
+      .then(res => {
+        setuser([...user, res.data])
+      })
+      .catch(err => {
+        console.log(err)
+        debugger
+      })
+  }
   const postNewuser = (newuser) => {
     axiosWithAuth()
       .post('api/auth/login', newuser)
@@ -97,6 +106,9 @@ function App() {
 
     postNewuser(newuser)
   }
+  useEffect(() => {
+    getNewuser()
+  }, [])
 
  
 
@@ -131,7 +143,7 @@ function App() {
           disabled={disabled}
         />
       </Route>
-      <PrivateRoute exact path='/post'>
+      <PrivateRoute exact path='/posts'>
         <PhotoGrid />
       </PrivateRoute>
 
