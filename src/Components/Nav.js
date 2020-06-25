@@ -8,7 +8,7 @@ function Navigation(){
         <Navbar className='Nav'>
             <NavbarBrand>Expat Journal</NavbarBrand>
             <Nav className='mr-auto'>
-                <NavItem><NavLink tag={Link} to='/we_are_in/post'>Home</NavLink></NavItem>
+                <NavItem><NavLink tag={Link} to='/we_are_in/posts'>Home</NavLink></NavItem>
                 <NavItem ><NavLink tag={Link} to='/we_are_in/newpost'>New Post</NavLink></NavItem>
                 <NavItem><NavLink tag={Link} to='/'>Logout</NavLink></NavItem>
             </Nav>

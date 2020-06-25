@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, FormText, Row } from 'reactstrap';
+import { Form, FormGroup, Label, FormText, Row } from 'reactstrap';
 import { axiosWithAuth } from "../../axiosWithAuth"
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -13,6 +13,18 @@ const schema = yup.object().shape({
     password: yup.string().required("Password is Required"),
 
 });
+
+const users = [
+    { id: 1, username: 'Shantel', password: 123 },
+    { id: 2, username: 'karina', password: 123 },
+    { id: 3, username: 'tiffany', password: 123 },
+    { id: 4, username: 'harrison', password: 123 },
+    { id: 5, username: 'anatoliy', password: 123 },
+    { id: 6, username: 'emily', password: 123 },
+    { id: 7, username: 'micherre', password: 123 }
+
+]
+
 function Login(props) {
     const { register, handleSubmit, errors, getValues } = useForm({
         validationSchema: schema,
@@ -31,8 +43,8 @@ function Login(props) {
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: LOGIN_SUCCESS, payload: res.data });
                 console.log(res);
-                history.push("/posts");
-                
+                history.push("/we_are_in/posts");
+
             })
             .catch((err) => {
                 dispatch({ type: LOGIN_FAIL, payload: err });
@@ -47,7 +59,7 @@ function Login(props) {
     return (
         <Form onSubmit={e => {
             handleSubmit(onSubmit)(e);
-            } }>
+        }}>
             <FormGroup >
                 <Row>
                     <h2>Login</h2>
@@ -83,8 +95,8 @@ function Login(props) {
                     </Label>
                 </Row>
 
-                <Button >Login</Button>
-                
+                <button >Login</button>
+                <input type="submit" />
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
         </Form>
