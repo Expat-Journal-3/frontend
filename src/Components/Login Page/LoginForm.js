@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, FormText, Row } from 'reactstrap';
+import {  Form, FormGroup, Label, FormText, Row } from 'reactstrap';
 import { axiosWithAuth } from "../../axiosWithAuth"
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -31,7 +31,7 @@ function Login(props) {
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: LOGIN_SUCCESS, payload: res.data });
                 console.log(res);
-                history.push("/posts");
+                history.push("/we_are_in/posts");
                 
             })
             .catch((err) => {
@@ -83,8 +83,8 @@ function Login(props) {
                     </Label>
                 </Row>
 
-                <Button >Login</Button>
-                
+                <button >Login</button>
+                <input type="submit" />
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
         </Form>
