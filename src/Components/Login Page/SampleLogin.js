@@ -24,7 +24,7 @@ class SampleLogin extends React.Component {
     axios.post('https://bwexpat-journal.herokuapp.com/api/auth/login', this.state.credentials)
       .then(res => {
         window.localStorage.setItem('token', res.data.token);
-          //this.props.history.push('/posts');  
+          this.props.history.push('/posts');  
 
 
       })

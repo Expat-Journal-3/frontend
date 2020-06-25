@@ -22,7 +22,7 @@ export function loginReducer(state = initialState, action) {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        username: action.payload.username,
+        user: action.payload.user,
         loading: false,
       };
     case LOGIN_FAIL:
