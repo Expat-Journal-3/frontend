@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Row, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 function Login(props){
     const{
@@ -12,16 +12,23 @@ function Login(props){
 
     return(
         <Form>
-            <FormGroup onSubmit={onSubmit}>
+            <FormGroup onSubmit={onSubmit} >
+                <Row form>
                 <h2>Login</h2>
-                <Label>Username
-                    <Input
-                        value={value.username}
-                        onChange={onInputChange}
-                        name='username'
-                        type='text'
-                    />
-                </Label>
+                </Row>
+                <Row form>
+                    <Label>Username
+                    
+                        <Input
+                            value={value.username}
+                            onChange={onInputChange}
+                            name='username'
+                            type='text'
+                        />
+
+                    </Label>
+                </Row>
+                <Row form>
 
                 <Label>Password
                     <Input
@@ -30,10 +37,16 @@ function Login(props){
                         name='password'
                         type='password'
                     />
+                    
                 </Label>
+                </Row>
+                <Row form>
+                <Link to='/we_are_in/post'><Button className='loginButton' disabled={disabled} >Login</Button></Link>
+                </Row>
 
-                <Link to='/post'><Button disabled={disabled} >Login</Button></Link>
+                <Row form>
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
+                </Row>
             </FormGroup>
         </Form>
     )
