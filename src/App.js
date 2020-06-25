@@ -9,7 +9,7 @@ import Nav from './Components/Nav'
 import Login from './Components/Login Page/LoginForm'
 import PhotoGrid from './Components/Photo Grid/PhotoGrid'
 import Post from './Components/View Post/Post'
-import CreatePostForm from './Components/Create Post/CreatePostForm'
+import {CreatePostForm} from './Components/Create Post/CreatePostForm'
 import Register from './Components/Login Page/Register'
 import SampleLogin from './Components/Login Page/SampleLogin'
 
