@@ -121,17 +121,13 @@ function App() {
   return (
     <div className="App">
       <Nav />
-
+    
       <Route path='/login'>
         <SampleLogin />
       </Route>
 
       <Route path='/login'>
-        <Login
-          value={formValues}
-          onInputChange={onInputChange}
-          onSubmit={onSubmit}
-          disabled={disabled}
+        <Login 
         />
       </Route>
 
@@ -154,11 +150,7 @@ function App() {
 
       <PrivateRoute path='/newpost'>
           <CreatePostForm
-            value={formValues}
-            onInputChange={onInputChange}
-            onSubmit={onSubmit}
-            disabled={disabled}
-            error={error}
+            
           />
       </PrivateRoute>
 

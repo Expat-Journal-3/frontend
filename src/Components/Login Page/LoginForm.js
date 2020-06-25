@@ -11,7 +11,7 @@ import * as yup from "yup";
 const schema = yup.object().shape({
     username: yup.string().required("Username is Required"),
     password: yup.string().required("Password is Required"),
-    email: yup.string().email("Invalid email").required("Email is Required"),
+    
 });
 function Login(props) {
     const { register, handleSubmit, errors, getValues } = useForm({
@@ -21,11 +21,11 @@ function Login(props) {
     const dispatch = useDispatch();
 
     const onSubmit = () => {
-        return dispatch => {
+        
             dispatch({ type: LOGIN_START });
             const values = getValues();
             axiosWithAuth()
-                .post("/api/auth/login", values)
+                .post('/api/auth/login', values)
                 .then((res) => {
                     console.log(res.data.token);
                     localStorage.setItem("token", res.data.token);
@@ -37,23 +37,21 @@ function Login(props) {
                     dispatch({ type: LOGIN_FAIL, payload: err });
                     console.log(err);
                 });
-        };
+        
     }
 
 
 
 
     return (
-        <Form>
-            <FormGroup onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <FormGroup >
                 <h2>Login</h2>
                 <div className="errors">
                     <p style={{ color: "red", fontWeight: "bold" }}>
                         {errors.username && errors.username.message}
                     </p>
-                    <p style={{ color: "red", fontWeight: "bold" }}>
-                        {errors.email && errors.email.message}
-                    </p>
+                    
                     <p style={{ color: "red", fontWeight: "bold" }}>
                         {errors.password && errors.password.message}
                     </p>
@@ -79,7 +77,7 @@ function Login(props) {
                 <Button >Login</Button>
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
-        </Form>
+        </form>
     )
 }
 
