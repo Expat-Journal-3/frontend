@@ -21,7 +21,7 @@ const PhotoGrid = props =>{
 const mapStateToProps = state => {
     console.log(state);
     return {
-      photos: state.photos
+      photos: state.getReducer.photos
     };
   };
   

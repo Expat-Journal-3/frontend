@@ -83,8 +83,8 @@ function Login(props) {
                     </Label>
                 </Row>
 
-                <button >Login</button>
-                <input type="submit" />
+                <Button >Login</Button>
+                
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
         </Form>
