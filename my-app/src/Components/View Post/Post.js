@@ -1,24 +1,34 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-function Post(props) {
-  const { details } = props
+const PostList = props => {
+  return (
+    <div className="post-list">
+      {props.movies.map(post=> (
+          <Link to={`/post/:${post.id}`}>
+            <Post key={post.id} post={post} />
+          </Link>
 
-  if (!details) {
-    return <h3>Getting Posts...</h3>
-  }
+      ))}
+    </div>
+  );
+}
+
+function Post({post}) {
+  const { image,title,description } = post
 
   return (
       <div className='card'>
             <Card >
-                <CardImg top width="100%" src={details.image} alt={details.title}/>
+                <CardImg top width="100%" src={image} alt={title}/>
                 <CardBody>
-                    <CardTitle> title: {details.title}</CardTitle>
-                    <CardText> description: {details.description}</CardText>
+                    <CardTitle> title: {title}</CardTitle>
+                    <CardText> description: {description}</CardText>
                 </CardBody>
             </Card>
     </div>
   )
 } 
 
-export default Post
+export default PostList
