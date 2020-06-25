@@ -125,7 +125,7 @@ function App() {
         <Nav />
       </Route>
 
-      <Route exact path='/we_are_in/post'>
+      <Route exact path='/we_are_in/posts'>
         <PhotoGrid />
       </Route>
 
@@ -152,7 +152,7 @@ function App() {
           disabled={disabled}
         />
       </Route>
-      <PrivateRoute exact path='/posts'>
+      <PrivateRoute exact path='/we_are_in/posts'>
         <PhotoGrid />
       </PrivateRoute>
 

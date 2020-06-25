@@ -1,19 +1,16 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
-
-
-function Post({post}) {
-  const { photo_url,title,description } = post
+function Post(props) {
+  const {details} = props
 
   return (
       <div className='card'>
             <Card >
-                <CardImg top width="100%" src={photo_url} alt={title}/>
+                <CardImg top width="100%" src={details.photo_url} alt={details.title}/>
                 <CardBody>
-                    <CardTitle> title: {title}</CardTitle>
-                    <CardText> description: {description}</CardText>
+                    <CardTitle> title: {details.title}</CardTitle>
+                    <CardText> description: {details.description}</CardText>
                 </CardBody>
             </Card>
     </div>

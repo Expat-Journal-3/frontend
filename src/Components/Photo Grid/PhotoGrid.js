@@ -7,8 +7,9 @@ const PhotoGrid = props =>{
     useEffect(()=>{
         props.fetchPosts();
        
-    },[])
-     
+    },[s])
+    console.log(props)
+
      return (
         <div className='PhotoGrid'>
             {props.photos.map((data)=>{
