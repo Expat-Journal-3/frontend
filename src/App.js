@@ -103,9 +103,9 @@ function App() {
         <Nav />
       </Route>
 
-      <Route path='/we_are_in/post/:id'>
+      <PrivateRoute path='/we_are_in/post/:id'>
         <PhotoDetailsSection />
-      </Route>
+      </PrivateRoute>
       <Route exact path='/'>
         <Login
           value={formValues}
@@ -125,9 +125,9 @@ function App() {
       <PrivateRoute exact path='/we_are_in/posts'>
         <PhotoGrid />
       </PrivateRoute>
-      <Route path='/we_are_in/newpost'>
+      <PrivateRoute path='/we_are_in/newpost'>
           <CreatePostForm/>
-      </Route>
+      </PrivateRoute>
     </div>
   )
 }
