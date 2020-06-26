@@ -11,7 +11,6 @@ import PhotoGrid from './Components/Photo Grid/PhotoGrid'
 import Post from './Components/View Post/Post'
 import {CreatePostForm} from './Components/Create Post/CreatePostForm'
 import Register from './Components/Login Page/Register'
-import PhotoDetailsSection from './Components/View Post/PhotoDetailsSection'
 
 
 //Schemas
@@ -132,8 +131,6 @@ function App() {
       <Route path='/we_are_in/posts/:id'>
         <Post />
       </Route>
-
-      <Post />
 
       <Route exact path='/'>
         <Login
