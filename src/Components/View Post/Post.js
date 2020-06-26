@@ -8,7 +8,7 @@ function Post(props) {
       <div className='card'>
                 <CardImg top width="100%" src={details.photo_url} alt={details.title}/>
                 <CardBody>
-                    <CardTitle> {details.title}</CardTitle>
+                    <CardTitle tag='h3'> {details.title}</CardTitle>
                     <CardText> {details.description}</CardText>
                 </CardBody>
     </div>
