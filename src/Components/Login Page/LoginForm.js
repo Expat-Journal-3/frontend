@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import {  Form, FormGroup, Label, FormText, Row } from 'reactstrap';
+import { Form, FormGroup, Label, FormText, Row } from 'reactstrap';
 import { axiosWithAuth } from "../../axiosWithAuth"
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -13,6 +13,19 @@ const schema = yup.object().shape({
     password: yup.string().required("Password is Required"),
 
 });
+
+const user_id = {
+     'Shantel': 1 ,
+     'karina': 2 ,
+    'tiffany': 3 ,
+    'harrison': 4 ,
+     'anatoliy': 5 ,
+     'emily': 6 ,
+    'micherre': 7 
+
+}
+
+
 function Login(props) {
     const { register, handleSubmit, errors, getValues } = useForm({
         validationSchema: schema,
@@ -27,12 +40,15 @@ function Login(props) {
         axiosWithAuth()
             .post('/api/auth/login', values)
             .then((res) => {
+                //const userid = userid[values.username];
                 console.log(res.data.token);
+                
                 localStorage.setItem("token", res.data.token);
+                //localStorage.setItem('userid', userid);
                 dispatch({ type: LOGIN_SUCCESS, payload: res.data });
                 console.log(res);
                 history.push("/we_are_in/posts");
-                
+
             })
             .catch((err) => {
                 dispatch({ type: LOGIN_FAIL, payload: err });
@@ -47,7 +63,7 @@ function Login(props) {
     return (
         <Form onSubmit={e => {
             handleSubmit(onSubmit)(e);
-            } }>
+        }}>
             <FormGroup >
                 <Row>
                     <h2>Login</h2>

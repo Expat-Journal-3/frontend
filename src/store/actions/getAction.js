@@ -26,11 +26,12 @@ export const fetchPosts = () => {
         //debugger
         dispatch({
           type: 'FETCH_THIS_FAILURE',
-          payload: `Error ${err.response.status}: ${err.response.data}`
+          //payload: `Error ${err.response.status}: ${err.response.data}`
         });
       })
 
 
   };
 };
+
 

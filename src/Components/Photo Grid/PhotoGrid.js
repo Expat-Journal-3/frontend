@@ -2,7 +2,6 @@ import React,{ useEffect} from 'react';
 import { connect } from 'react-redux';
 import Post from '../View Post/Post';
 import { fetchPosts } from '../../store/actions/getAction.js';
-import MasonryLayout from './MansonryLayout';
 
 const PhotoGrid = props =>{
     useEffect(()=>{

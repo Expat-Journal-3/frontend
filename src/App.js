@@ -11,7 +11,7 @@ import PhotoGrid from './Components/Photo Grid/PhotoGrid'
 import Post from './Components/View Post/Post'
 import {CreatePostForm} from './Components/Create Post/CreatePostForm'
 import Register from './Components/Login Page/Register'
-
+import PhotoDetailsSection from './Components/View Post/PhotoDetailsSection'
 
 
 //Schemas
@@ -129,18 +129,15 @@ function App() {
         <PhotoGrid />
       </Route>
 
-      <Route path='/we_are_in/post/:id'>
+      <Route path='/we_are_in/posts/:id'>
         <Post />
       </Route>
 
-      
+      <Post />
 
       <Route exact path='/'>
         <Login
-          value={formValues}
-          onInputChange={onInputChange}
-          onSubmit={onSubmit}
-          disabled={disabled}
+
         />
       </Route>
 
@@ -152,13 +149,14 @@ function App() {
           disabled={disabled}
         />
       </Route>
-      <PrivateRoute exact path='/we_are_in/posts'>
+      <PrivateRoute exact path='/posts'>
         <PhotoGrid />
       </PrivateRoute>
 
       <Route path='/we_are_in/newpost'>
           <CreatePostForm/>
       </Route>
+
 
     </div>
   )
