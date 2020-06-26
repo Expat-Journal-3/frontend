@@ -37,9 +37,7 @@
   }
 }
 
-.PhotoGrid {
-  text-decoration: none;
-}
+
 
 Form{
   display: flex;
@@ -49,12 +47,14 @@ Form{
 }
 
 
-.card {
+.PhotoGrid a,.PhotoGrid a:visited,.PhotoGrid a:hover{
   background-color: #eee;
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
   height: 100%;
+  text-decoration: none !important;
+  color: #282c34;
 }
 
 .PhotoGrid{
@@ -81,3 +81,4 @@ Form{
     column-count: 2;
   }
 }
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
+import {CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 import { Link } from "react-router-dom";
 function Post(props) {
   const {details} = props
@@ -8,8 +8,8 @@ function Post(props) {
       <div className='card'>
                 <CardImg top width="100%" src={details.photo_url} alt={details.title}/>
                 <CardBody>
-                    <CardTitle> title: {details.title}</CardTitle>
-                    <CardText> description: {details.description}</CardText>
+                    <CardTitle> {details.title}</CardTitle>
+                    <CardText> {details.description}</CardText>
                 </CardBody>
     </div>
     </Link>
