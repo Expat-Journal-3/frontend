@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-
 import { axiosWithAuth } from "../../axiosWithAuth.js";
-
-
-
 export default function PhotoDetailsSection() {
   const [post, setPost] = useState();
   const [edit, setEdit] = useState(false);
   const { id } = useParams();
   const history = useHistory();
-  
-
-
   useEffect(() => {
     axiosWithAuth()
       .get(`/api/posts/${id}`)
@@ -20,10 +13,8 @@ export default function PhotoDetailsSection() {
         setPost(res.data);
       })
       .catch((err) => console.log(err));
-
   }, [id]);
   console.log(post);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
@@ -34,7 +25,6 @@ export default function PhotoDetailsSection() {
       })
       .catch((err) => console.log(err));
   };
-
   const handleDelete = () => {
     axiosWithAuth()
       .delete(`api/posts/${id}`)
@@ -42,7 +32,6 @@ export default function PhotoDetailsSection() {
         history.push("/we_are_in/posts");
       });
   };
-
   const handleChange = (e) => {
     setPost({
       ...post,
@@ -53,14 +42,11 @@ export default function PhotoDetailsSection() {
     return null
   }
   return (
-
     <div className='PhotoDetails'>
       <img top width="100%" src={post.photo_url} alt={post.title}/>
       <h2>{post.title}</h2>
-
       <p className='postDescription'>{post.description}</p>
       <p className='postLocation'>{post.location}</p>
-
       {!edit && <button onClick={() => setEdit(true)}>Edit Post</button>}
       {edit && (
         <form onSubmit={handleSubmit}>
@@ -92,8 +78,6 @@ export default function PhotoDetailsSection() {
             value={post && post.description}
             onChange={handleChange}
           />
-
-
           <br />
           <br />
           <button type="submit">Save Changes</button>
@@ -101,9 +85,7 @@ export default function PhotoDetailsSection() {
           <br />
           <button onClick={handleDelete}>Delete</button>
         </form>
-
       )}
-
     </div>
   )
 }
