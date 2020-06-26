@@ -14,7 +14,8 @@ const PhotoGrid = props =>{
      return (
         <div className='PhotoGrid'>
             {props.photos.map((data)=>{
-             return <Post details = {data}/>
+             return (<Post details = {data}/>)
+             
             })}
         </div>
     )

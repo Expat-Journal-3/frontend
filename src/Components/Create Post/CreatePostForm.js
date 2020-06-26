@@ -36,7 +36,7 @@ export function CreatePostForm(props) {
         axiosWithAuth()
             .post(`api/posts/user/${user_id}`, newpost)
             .then(res => {
-                history.push("we_are_in/posts");
+                history.push("/we_are_in/posts");
                 console.log(res.data);
             })
             .catch(err => {
