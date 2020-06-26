@@ -37,7 +37,7 @@ export default function PhotoDetailsSection() {
 
   const handleDelete = () => {
     axiosWithAuth()
-      .delete(`/api/posts/delete/${id}`)
+      .delete(`api/posts/${id}`)
       .then((res) => {
         history.push("/we_are_in/posts");
       });
