@@ -82,3 +82,37 @@ Form{
   }
 }
 
+
+.details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.PhotoDetails button{
+  margin-bottom: 20px;
+}
+
+.PhotoDetails img{
+  width: auto;
+  max-height: 1000px;
+}
+
+.editForm{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 10px;
+}
+.edit{
+  margin-bottom: 20px;
+}
+
+.textarea input{
+  height: 100px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+

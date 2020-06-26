@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../../axiosWithAuth.js";
+import { Button, Form, Label, Input, Row, Col } from 'reactstrap';
+
+
+
 export default function PhotoDetailsSection() {
   const [post, setPost] = useState();
   const [edit, setEdit] = useState(false);
@@ -43,49 +47,51 @@ export default function PhotoDetailsSection() {
   }
   return (
     <div className='PhotoDetails'>
-      <img top width="100%" src={post.photo_url} alt={post.title}/>
+      <div className='details'>
       <h2>{post.title}</h2>
       <p className='postDescription'>{post.description}</p>
       <p className='postLocation'>{post.location}</p>
-      {!edit && <button onClick={() => setEdit(true)}>Edit Post</button>}
+      {!edit && <Button onClick={() => setEdit(true)}>Edit Post</Button>}
       {edit && (
-        <form onSubmit={handleSubmit}>
-          <label>Name</label>
-          <br />
-          <br />
-          <input
-            name="title"
-            value={post && post.title}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <label>Image Url</label>
-          <br />
-          <br />
-          <input
-            name="photo_url"
-            value={post && post.photo_url}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <label>Description</label>
-          <br />
-          <br />
-          <input
-            name="description"
-            value={post && post.description}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <button type="submit">Save Changes</button>
-          <br />
-          <br />
-          <button onClick={handleDelete}>Delete</button>
-        </form>
+        
+        <Form className='editForm' onSubmit={handleSubmit}>
+          <div className='edit'>
+            <Label>Name</Label>
+            <Input
+              name="title"
+              value={post && post.title}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className='edit'>
+
+            <Label>Image Url</Label>
+          
+            <Input
+              name="photo_url"
+              value={post && post.photo_url}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className='edit textarea'>
+            <Label>Description</Label>
+            <Input
+              name="description"
+              value={post && post.description}
+              onChange={handleChange}
+            />
+          </div>
+          <div className='editBttns'>
+            <Button type="submit">Save </Button>
+            <Button onClick={handleDelete}>Delete</Button>
+          </div>
+        </Form>
       )}
+      </div>
+      <img top width="100%" src={post.photo_url} alt={post.title}/>
+
     </div>
   )
 }
