@@ -47,22 +47,38 @@ Form{
 }
 
 
-.PhotoGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 10px;
-  grid-auto-rows: 200px;
+.PhotoGrid a,.PhotoGrid a:visited,.PhotoGrid a:hover{
+  background-color: #eee;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  height: 100%;
+  text-decoration: none !important;
+  color: #282c34;
 }
 
-.PhotoGrid img{
-  width: 250px;
+.PhotoGrid{
+  column-count: 4;
+  column-gap: 1em;
+ 
 }
 
-.PostPhoto{
-  border: 2px solid red;
-}
-.card{
-  width: 400px;
+
+@media only screen and (min-width: 1024px) {
+  .PhotoGrid {
+    column-count: 4;
+  }
 }
 
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .PhotoGrid {
+    column-count: 3;
+  }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+  .PhotoGrid {
+    column-count: 2;
+  }
+}
 
