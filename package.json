@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "14.1.0",
+    "node": "12.18.0",
     "npm": "6.14.4"
   },
   "dependencies": {
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI='' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
