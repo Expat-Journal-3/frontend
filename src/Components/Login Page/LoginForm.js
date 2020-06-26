@@ -40,11 +40,11 @@ function Login(props) {
         axiosWithAuth()
             .post('/api/auth/login', values)
             .then((res) => {
-                //const userid = userid[values.username];
+                const userid = user_id[values.username];
                 console.log(res.data.token);
                 
                 localStorage.setItem("token", res.data.token);
-                //localStorage.setItem('userid', userid);
+                localStorage.setItem('userid', userid);
                 dispatch({ type: LOGIN_SUCCESS, payload: res.data });
                 console.log(res);
                 history.push("/we_are_in/posts");

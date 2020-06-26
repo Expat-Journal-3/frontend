@@ -8,15 +8,15 @@ import { useHistory } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const intialErrors = {
-    id: '',
+
     title: '',
     description: '',
-    image: '',
+    photo_url: '',
 }
 const intialValues = {
     title: '',
     description: '',
-    image: '',
+    photo_url: '',
 }
 
 const intialpost = []
@@ -24,7 +24,7 @@ const initialDisabled = true
 
 export function CreatePostForm(props) {
     //const [post, setpost] = useState(intialUser)
-    const [value, setValues] = useState(intialValues)
+    const [values, setValues] = useState(intialValues)
     const [error, setError] = useState(intialErrors)
     const history = useHistory();
     const [disabled, setDisabled] = useState(initialDisabled)
@@ -32,18 +32,19 @@ export function CreatePostForm(props) {
 
     const postNewPost = (newpost) => {
         //const { id } = useSelector((state) => state.userReducer.user);
+        const user_id = window.localStorage.getItem('userid');
         axiosWithAuth()
-            .post(`api/posts/user/${props.user_id}`, newpost)
+            .post(`api/posts/user/${user_id}`, newpost)
             .then(res => {
-                history.push("/posts");
-                console.log(res.data)
-                    .catch(err => {
-                        console.log(err)
-                        debugger
-                    })
-                    .finally(() => {
-                        setValues(intialValues)
-                    })
+                history.push("we_are_in/posts");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err)
+                debugger;
+            })
+            .finally(() => {
+                setValues(intialValues)
             })
     }
 
@@ -68,7 +69,7 @@ export function CreatePostForm(props) {
             })
 
         setValues({
-            ...value,
+            ...values,
             [name]: value,
         })
     }
@@ -76,9 +77,9 @@ export function CreatePostForm(props) {
         evt.preventDefault()
 
         const newpost = {
-            title: value.title,
-            description: value.description,
-            image: value.image,
+            title: values.title,
+            description: values.description,
+            photo_url: values.photo_url,
 
         }
 
@@ -91,21 +92,22 @@ export function CreatePostForm(props) {
     }, [])*/
 
     useEffect(() => {
-        newPostSchema.isValid(value).then(valid => {
+        console.log(values)
+        newPostSchema.isValid(values).then(valid => {
             console.log(valid)
             setDisabled(!valid)
         })
-    }, [value])
+    }, [values])
 
     return (
         <div>
-            <Form>
-                <FormGroup onSubmit={onSubmit}>
+            <Form onSubmit={onSubmit}>
+                <FormGroup>
                     <h2>New Post</h2>
 
                     <Label>Title
                         <Input
-                            value={value.title}
+                            value={values.title}
                             onChange={onInputChange}
                             name='title'
                             type='text'
@@ -115,18 +117,18 @@ export function CreatePostForm(props) {
                     <div className='newPostPhoto'>
                         <Label>Photo URL
                         <Input
-                                value={value.image}
+                                value={values.photo_url}
                                 onChange={onInputChange}
-                                name='image'
+                                name='photo_url'
                                 type='text'
-                                alt={value.title}
+                                alt={values.title}
                             />
                         </Label>
                     </div>
                     <div className='newPostDetails'>
                         <Label>Description
                         <Input
-                                value={value.description}
+                                value={values.description}
                                 onChange={onInputChange}
                                 name='description'
                                 type='textarea'
@@ -138,7 +140,7 @@ export function CreatePostForm(props) {
                 </FormGroup>
             </Form>
 
-           
+
         </div>
     )
 
