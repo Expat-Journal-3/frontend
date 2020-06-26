@@ -78,7 +78,7 @@ function Login(props) {
                     </div>
                 </Row>
                 <Row>
-                    <Label>Username
+                    <Label>Username&nbsp;
                     <input
                             ref={register}
 
@@ -89,7 +89,7 @@ function Login(props) {
                 </Row>
 
                 <Row>
-                    <Label>Password
+                    <Label>Password&nbsp;
                     <input
                             ref={register}
 
@@ -98,8 +98,8 @@ function Login(props) {
                         />
                     </Label>
                 </Row>
-
-                <button >Login</button>
+                
+                <button>Login</button>
                 
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
