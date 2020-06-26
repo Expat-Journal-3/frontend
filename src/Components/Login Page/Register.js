@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Button, Row, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-function Login(props){
+function Register(props){
     const{
         value,
         onInputChange,
@@ -52,4 +52,4 @@ function Login(props){
     )
 }
 
-export default Login;
+export default Register;

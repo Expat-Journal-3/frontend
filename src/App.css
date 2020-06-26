@@ -47,21 +47,7 @@ Form{
 }
 
 
-.PhotoGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 10px;
-  grid-auto-rows: 200px;
-}
-
-.PhotoGrid img{
-  width: 250px;
-}
-
-.PostPhoto{
-  border: 2px solid red;
-}
-.card{
+.card img{
   width: 400px;
 }
 
