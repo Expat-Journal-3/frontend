@@ -14,16 +14,17 @@ const schema = yup.object().shape({
 
 });
 
-const users = [
-    { id: 1, username: 'Shantel', password: 123 },
-    { id: 2, username: 'karina', password: 123 },
-    { id: 3, username: 'tiffany', password: 123 },
-    { id: 4, username: 'harrison', password: 123 },
-    { id: 5, username: 'anatoliy', password: 123 },
-    { id: 6, username: 'emily', password: 123 },
-    { id: 7, username: 'micherre', password: 123 }
+const user_id = {
+     'Shantel': 1 ,
+     'karina': 2 ,
+    'tiffany': 3 ,
+    'harrison': 4 ,
+     'anatoliy': 5 ,
+     'emily': 6 ,
+    'micherre': 7 
 
-]
+}
+
 
 function Login(props) {
     const { register, handleSubmit, errors, getValues } = useForm({
@@ -39,8 +40,11 @@ function Login(props) {
         axiosWithAuth()
             .post('/api/auth/login', values)
             .then((res) => {
+                //const userid = userid[values.username];
                 console.log(res.data.token);
+                
                 localStorage.setItem("token", res.data.token);
+                //localStorage.setItem('userid', userid);
                 dispatch({ type: LOGIN_SUCCESS, payload: res.data });
                 console.log(res);
                 history.push("/we_are_in/posts");
@@ -96,7 +100,7 @@ function Login(props) {
                 </Row>
 
                 <button >Login</button>
-                <input type="submit" />
+                
                 <FormText color='muted'>Don't have an account? <Link to='/register'>Register Here!</Link></FormText>
             </FormGroup>
         </Form>

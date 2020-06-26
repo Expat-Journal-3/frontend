@@ -1,4 +1,4 @@
-Deployed React App: https://vigilant-ritchie-2a8d6c.netlify.app/post
+Deployed React App: https://infallible-clarke-c0b225.netlify.app/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
