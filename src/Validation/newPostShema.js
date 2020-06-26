@@ -9,8 +9,9 @@ const newPostSchema = yup.object().shape({
         .string()
         .required("description required"),
 
-    image: yup
+    photo_url: yup
         .string()
+        
 })
 
 export default newPostSchema

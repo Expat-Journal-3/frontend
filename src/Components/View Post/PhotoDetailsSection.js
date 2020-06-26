@@ -30,16 +30,16 @@ export default function PhotoDetailsSection() {
       .put(`/api/posts/${id}`, post)
       .then((res) => {
         console.log(res);
-        history.push("/posts");
+        history.push("/we_are_in/posts");
       })
       .catch((err) => console.log(err));
   };
 
   const handleDelete = () => {
     axiosWithAuth()
-      .delete(`/api/posts/delete/${id}`)
+      .delete(`api/posts/${id}`)
       .then((res) => {
-        history.push("/posts");
+        history.push("/we_are_in/posts");
       });
   };
 
@@ -68,7 +68,7 @@ export default function PhotoDetailsSection() {
           <br />
           <br />
           <input
-            name="post_title"
+            name="title"
             value={post && post.title}
             onChange={handleChange}
           />
@@ -78,7 +78,7 @@ export default function PhotoDetailsSection() {
           <br />
           <br />
           <input
-            name="image"
+            name="photo_url"
             value={post && post.photo_url}
             onChange={handleChange}
           />
