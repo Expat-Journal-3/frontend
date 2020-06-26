@@ -1,14 +1,14 @@
-import React from 'react';
+//import React from 'react';
 
-function PostPhoto(props){
+//function PostPhoto(props){
 
-   const {details} = props;
+   //const {details} = props;
 
-   return(
-       <div className='PostPhoto'>
-           <img src={details.photo_url} alt={details.title}/>
-       </div>
-   )
-}
+   //return(
+       //<div className='PostPhoto'>
+           //<img src={details.photo_url} alt={details.title}/>
+       //</div>
+   //)
+//}
 
-export default PostPhoto;
+//export default PostPhoto;

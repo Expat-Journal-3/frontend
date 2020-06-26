@@ -126,10 +126,7 @@ function App() {
         <Nav />
       </Route>
 
-      <Route exact path='/we_are_in/posts'>
-        <PhotoGrid />
-      </Route>
-
+   
       <Route path='/we_are_in/post/:id'>
         <PhotoDetailsSection />
       </Route>
