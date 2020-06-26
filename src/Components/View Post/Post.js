@@ -7,7 +7,7 @@ function Post(props) {
   const {details} = props
 
   return (
-    //<Link to={`/posts/${details.id}`}>}
+    <Link to={`/we_are_in/post/${details.id}`}>
       <div className='card'>
 
             <Card >
@@ -18,7 +18,7 @@ function Post(props) {
                 </CardBody>
             </Card>
     </div>
-    //</Link>}
+    </Link>
   )
 } 
 

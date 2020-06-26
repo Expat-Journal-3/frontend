@@ -18,6 +18,7 @@ import Register from './Components/Login Page/Register'
 import loginSchema from './Validation/loginSchema'
 import PrivateRoute from './Components/Routes/PrivateRoute'
 import { axiosWithAuth } from './axiosWithAuth';
+import PhotoDetailsSection from './Components/View Post/PhotoDetailsSection';
 
 ///intial states
 const intialValues = {
@@ -130,7 +131,7 @@ function App() {
       </Route>
 
       <Route path='/we_are_in/post/:id'>
-        <Post />
+        <PhotoDetailsSection />
       </Route>
 
       
